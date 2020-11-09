@@ -12,7 +12,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get -y install libgfortran3
-RUN ll
 RUN apt update && \
     apt -y install libeigen3-dev libsdl2-dev libglew-dev curl && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
