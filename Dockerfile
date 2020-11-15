@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt update && \
- apt install -y libfontconfig1-dev rpm2cpio cpio wget gfortran gcc ragel libssl-dev make cmake g++ git autogen \
+ apt install -y rpm2cpio cpio wget gfortran gcc ragel libssl-dev make cmake g++ git autogen \
 	pkg-config valgrind libboost-all-dev language-pack-en-base libboost-python-dev python3-dev \
 	libsuperlu-dev libopenblas-dev sshpass zlib1g-dev\
 	clang-tidy clang libboost-all-dev wget valgrind python-yaml fontconfig p7zip p7zip-rar p7zip-full\
