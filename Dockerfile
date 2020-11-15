@@ -5,6 +5,7 @@ RUN apt update && \
 	libsuperlu-dev libopenblas-dev sshpass zlib1g-dev\
 	clang-tidy clang libboost-all-dev wget valgrind python-yaml fontconfig p7zip p7zip-rar p7zip-full\
  && rm -rf /var/lib/apt/lists/* 
+RUN apt-get install -y libfontconfig1-dev
 RUN apt update && \
     apt install -y clang-8 clang-tidy-8
 RUN apt-get update && \
