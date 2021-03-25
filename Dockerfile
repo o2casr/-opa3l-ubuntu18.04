@@ -5,7 +5,8 @@ RUN apt-get update && \
 	libsuperlu-dev libopenblas-dev sshpass zlib1g-dev\
 	clang-tidy clang libboost-all-dev wget valgrind python-yaml fontconfig p7zip p7zip-rar p7zip-full\
  && rm -rf /var/lib/apt/lists/* 
-RUN apt-get install -y libfontconfig1-dev
+#problems during apt-get call (but should be needed by adtf) 
+#RUN apt-get install -y libfontconfig1-dev
 RUN apt-get update && \
     apt-get install -y clang-8 clang-tidy-8
 RUN apt-get update && \
@@ -21,6 +22,8 @@ RUN apt-get update && \
 RUN apt-get update && apt-get -y install sqlite3 libsqlite3-dev
 RUN wget -q -O protobuf.7z https://seafile.zfn.uni-bremen.de/f/7c30abafc57a419fb568/?dl=1 && mkdir protobuf && \
  7z x protobuf.7z -o./protobuf -y
+ 
+# ADTF packages
 RUN wget https://artifactory.digitalwerk.net:443/artifactory/Product-Releases/ADTF/3.9.1/Linux/x86_64/gcc/5.4/ADTF-3.9.1.tgz && mkdir ADTF && tar -xvzf ADTF-3.9.1.tgz -C ADTF 
 RUN wget https://artifactory.digitalwerk.net:443/artifactory/Product-Releases/ADTF-Device-Toolbox/3.3.0/Linux/x86_64/gcc/5.4/ADTF-Device-Toolbox-3.3.0.tgz -P ADTF/addons/ && mkdir ADTF/addons/devicetoolbox && tar -xvzf ADTF/addons/devicetoolbox*.tgz -C ADTF/addons/devicetoolbox/ --strip-components 1
 RUN wget https://artifactory.digitalwerk.net:443/artifactory/Product-Releases/ADTF-Display-Toolbox/3.5.0/Linux/x86_64/gcc/5.4/ADTF-Display-Toolbox-3.5.0.tgz -P ADTF/addons/ && mkdir ADTF/addons/displaytoolbox && tar -xvzf ADTF/addons/displaytoolbox*.tgz -C ADTF/addons/displaytoolbox/ --strip-components 1
@@ -28,7 +31,5 @@ RUN wget https://artifactory.digitalwerk.net:443/artifactory/dw-developer-sdk/dw
 RUN wget https://artifactory.digitalwerk.net:443/artifactory/dw-developer-sdk/dw/ifhd/0.7.0/stable/0/package/71d4265f29f795a3fb34bf81a810f6280bd3737b/0/conan_package.tgz -P ADTF/3rdparty/ && mv ADTF/3rdparty/conan_package.tgz ADTF/3rdparty/ifhd.tgz && mkdir ADTF/3rdparty/ifhd && tar -xvzf ADTF/3rdparty/ifhd.tgz -C ADTF/3rdparty/ifhd
 RUN wget https://artifactory.digitalwerk.net:443/artifactory/dw-developer-sdk/dw/a_util/5.6.1/stable/0/package/b1c1bba64e5b990636f4bcca97c3f5313c24bc3c/0/conan_package.tgz -P ADTF/3rdparty/ && mv ADTF/3rdparty/conan_package.tgz ADTF/3rdparty/a_util.tgz && mkdir ADTF/3rdparty/a_util && tar -xvzf ADTF/3rdparty/a_util.tgz -C ADTF/3rdparty/a_util
 RUN mv ADTF/3rdparty/qt5/ ADTF/3rdparty/qt5_ && wget https://artifactory.digitalwerk.net/artifactory/dw-developer-sdk/dw/Qt/5.12.9/stable/package/648bb5b2b9868c1adf9d7f10ac8d201e13159bb5/conan_package.tgz -P ADTF/3rdparty/ && mv ADTF/3rdparty/conan_package.tgz ADTF/3rdparty/qt5.tgz && mkdir ADTF/3rdparty/qt5 && tar -xvzf ADTF/3rdparty/qt5.tgz -C ADTF/3rdparty/qt5
-
-
 
 ENV LANG en_US.utf-8
