@@ -33,3 +33,4 @@ RUN wget https://artifactory.digitalwerk.net:443/artifactory/dw-developer-sdk/dw
 RUN mv ADTF/3rdparty/qt5/ ADTF/3rdparty/qt5_ && wget https://artifactory.digitalwerk.net:443/artifactory/dw-developer-sdk/dw/Qt/5.12.9/stable/0/package/648bb5b2b9868c1adf9d7f10ac8d201e13159bb5/0/conan_package.tgz -P ADTF/3rdparty/ && mv ADTF/3rdparty/conan_package.tgz ADTF/3rdparty/qt5.tgz && mkdir ADTF/3rdparty/qt5 && tar -xzf ADTF/3rdparty/qt5.tgz -C ADTF/3rdparty/qt5
 
 ENV LANG en_US.utf-8
+
