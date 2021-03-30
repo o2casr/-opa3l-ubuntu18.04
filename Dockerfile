@@ -9,13 +9,15 @@ RUN apt-get update && \
 	libgfortran3 \
 	libeigen3-dev libsdl2-dev libglew-dev curl \
 	sqlite3 libsqlite3-dev \
+	libopencv-dev python3-opencv \
  && apt-get clean \	
  && rm -rf /var/lib/apt/lists/* \
  && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash \
- && apt-get -y install git-lfs && \
+ && apt-get -y install git-lfs \
  && git lfs install \
- && wget -q -O protobuf.7z https://seafile.zfn.uni-bremen.de/f/7c30abafc57a419fb568/?dl=1 && mkdir protobuf && \
- 	7z x protobuf.7z -o./protobuf -y \
+ && wget -q -O protobuf.7z https://seafile.zfn.uni-bremen.de/f/7c30abafc57a419fb568/?dl=1 \
+ && mkdir protobuf \
+ && 7z x protobuf.7z -o./protobuf -y \
  && wget -q https://artifactory.digitalwerk.net:443/artifactory/Product-Releases/ADTF/3.9.1/Linux/x86_64/gcc/5.4/ADTF-3.9.1.tgz && mkdir ADTF && tar -xzf ADTF-3.9.1.tgz -C ADTF \
  && wget -q https://artifactory.digitalwerk.net:443/artifactory/Product-Releases/ADTF-Device-Toolbox/3.3.0/Linux/x86_64/gcc/5.4/ADTF-Device-Toolbox-3.3.0.tgz -P ADTF/addons/ && mkdir ADTF/addons/devicetoolbox && tar -xzf ADTF/addons/devicetoolbox*.tgz -C ADTF/addons/devicetoolbox/ --strip-components 1 \
  && wget -q https://artifactory.digitalwerk.net:443/artifactory/Product-Releases/ADTF-Display-Toolbox/3.5.0/Linux/x86_64/gcc/5.4/ADTF-Display-Toolbox-3.5.0.tgz -P ADTF/addons/ && mkdir ADTF/addons/displaytoolbox && tar -xzf ADTF/addons/displaytoolbox*.tgz -C ADTF/addons/displaytoolbox/ --strip-components 1 \
